@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F0D0B0F41AEA623B00DB4C31 /* BallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D0B0F31AEA623B00DB4C31 /* BallView.swift */; };
+		F0D0B0F61AEA758A00DB4C31 /* GameBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D0B0F51AEA758A00DB4C31 /* GameBehavior.swift */; };
 		F0E9736B1AE9623D00351E23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E9736A1AE9623D00351E23 /* AppDelegate.swift */; };
-		F0E9736D1AE9623D00351E23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E9736C1AE9623D00351E23 /* ViewController.swift */; };
 		F0E973701AE9623D00351E23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E9736E1AE9623D00351E23 /* Main.storyboard */; };
 		F0E973721AE9623D00351E23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0E973711AE9623D00351E23 /* Images.xcassets */; };
 		F0E973751AE9623D00351E23 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0E973731AE9623D00351E23 /* LaunchScreen.xib */; };
 		F0E973811AE9623D00351E23 /* BreakoutTwinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E973801AE9623D00351E23 /* BreakoutTwinTests.swift */; };
+		F0E9738B1AE963D400351E23 /* BreakoutTwinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E9738A1AE963D400351E23 /* BreakoutTwinViewController.swift */; };
+		F0E9738D1AE9660F00351E23 /* BezierPathsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E9738C1AE9660F00351E23 /* BezierPathsView.swift */; };
+		F0E973901AE9736A00351E23 /* gradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E9738F1AE9736A00351E23 /* gradientBackground.swift */; };
+		F0E973921AE9859700351E23 /* PaddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E973911AE9859700351E23 /* PaddleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +31,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F0D0B0F31AEA623B00DB4C31 /* BallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallView.swift; sourceTree = "<group>"; };
+		F0D0B0F51AEA758A00DB4C31 /* GameBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBehavior.swift; sourceTree = "<group>"; };
 		F0E973651AE9623D00351E23 /* BreakoutTwin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakoutTwin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E973691AE9623D00351E23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0E9736A1AE9623D00351E23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F0E9736C1AE9623D00351E23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F0E9736F1AE9623D00351E23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F0E973711AE9623D00351E23 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F0E973741AE9623D00351E23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F0E9737A1AE9623D00351E23 /* BreakoutTwinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreakoutTwinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E9737F1AE9623D00351E23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0E973801AE9623D00351E23 /* BreakoutTwinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakoutTwinTests.swift; sourceTree = "<group>"; };
+		F0E9738A1AE963D400351E23 /* BreakoutTwinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakoutTwinViewController.swift; sourceTree = "<group>"; };
+		F0E9738C1AE9660F00351E23 /* BezierPathsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierPathsView.swift; sourceTree = "<group>"; };
+		F0E9738F1AE9736A00351E23 /* gradientBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gradientBackground.swift; sourceTree = "<group>"; };
+		F0E973911AE9859700351E23 /* PaddleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +87,13 @@
 		F0E973671AE9623D00351E23 /* BreakoutTwin */ = {
 			isa = PBXGroup;
 			children = (
-				F0E9736A1AE9623D00351E23 /* AppDelegate.swift */,
-				F0E9736C1AE9623D00351E23 /* ViewController.swift */,
+				F0E9738E1AE9734D00351E23 /* extensions */,
+				F0D0B0F31AEA623B00DB4C31 /* BallView.swift */,
+				F0D0B0F51AEA758A00DB4C31 /* GameBehavior.swift */,
 				F0E9736E1AE9623D00351E23 /* Main.storyboard */,
-				F0E973711AE9623D00351E23 /* Images.xcassets */,
-				F0E973731AE9623D00351E23 /* LaunchScreen.xib */,
+				F0E973911AE9859700351E23 /* PaddleView.swift */,
+				F0E9738A1AE963D400351E23 /* BreakoutTwinViewController.swift */,
+				F0E9738C1AE9660F00351E23 /* BezierPathsView.swift */,
 				F0E973681AE9623D00351E23 /* Supporting Files */,
 			);
 			path = BreakoutTwin;
@@ -90,6 +102,9 @@
 		F0E973681AE9623D00351E23 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F0E973711AE9623D00351E23 /* Images.xcassets */,
+				F0E973731AE9623D00351E23 /* LaunchScreen.xib */,
+				F0E9736A1AE9623D00351E23 /* AppDelegate.swift */,
 				F0E973691AE9623D00351E23 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -110,6 +125,14 @@
 				F0E9737F1AE9623D00351E23 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F0E9738E1AE9734D00351E23 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F0E9738F1AE9736A00351E23 /* gradientBackground.swift */,
+			);
+			name = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,7 +235,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0E9736D1AE9623D00351E23 /* ViewController.swift in Sources */,
+				F0E9738D1AE9660F00351E23 /* BezierPathsView.swift in Sources */,
+				F0E973901AE9736A00351E23 /* gradientBackground.swift in Sources */,
+				F0E973921AE9859700351E23 /* PaddleView.swift in Sources */,
+				F0D0B0F61AEA758A00DB4C31 /* GameBehavior.swift in Sources */,
+				F0D0B0F41AEA623B00DB4C31 /* BallView.swift in Sources */,
+				F0E9738B1AE963D400351E23 /* BreakoutTwinViewController.swift in Sources */,
 				F0E9736B1AE9623D00351E23 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +435,7 @@
 				F0E973861AE9623D00351E23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F0E973871AE9623D00351E23 /* Build configuration list for PBXNativeTarget "BreakoutTwinTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +444,7 @@
 				F0E973891AE9623D00351E23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
