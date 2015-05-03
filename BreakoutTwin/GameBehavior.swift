@@ -18,7 +18,7 @@ class GameBehavior: UIDynamicBehavior {
         lazilyCreatedBallMovement.resistance = 0.0
         lazilyCreatedBallMovement.action = {
             for item in lazilyCreatedBallMovement.items {
-                if let ball = item as? UIView {
+                if let ball = item as? BallView {
                     if ball.frame.origin.y < 0 || ball.frame.origin.y > self.dynamicAnimator?.referenceView?.bounds.height {
                         self.removeBall(ball)
                     }
@@ -31,7 +31,6 @@ class GameBehavior: UIDynamicBehavior {
     lazy var collider: UICollisionBehavior = {
         let lazilyCreatedCollider = UICollisionBehavior()
         lazilyCreatedCollider.translatesReferenceBoundsIntoBoundary = false
-        
         return lazilyCreatedCollider
     }()
     
@@ -46,15 +45,10 @@ class GameBehavior: UIDynamicBehavior {
         collider.addBoundaryWithIdentifier(name, forPath: path)
     }
     
-    func addBall(ball: UIView) {
+    func addBall(ball: BallView) {
         dynamicAnimator?.referenceView?.addSubview(ball)
         
         let push = UIPushBehavior(items: [ball], mode: .Instantaneous)
-//        push.magnitude = 0.1
-//        var randomAngle = -27.0 //Double(arc4random())
-//        print(randomAngle)
-//        push.angle = CGFloat(randomAngle) // *  M_PI)// / Double(UINT32_MAX))
-
         push.pushDirection = CGVector(dx: 0.1, dy: -0.1)
         push.action = { [weak push] in
             if !push!.active {
@@ -75,6 +69,12 @@ class GameBehavior: UIDynamicBehavior {
 
     func addPaddle(paddle: UIView, name: String) {
         let path = UIBezierPath(roundedRect: paddle.frame, cornerRadius: CGFloat(50))
+        collider.removeBoundaryWithIdentifier(name)
+        collider.addBoundaryWithIdentifier(name, forPath: path)
+    }
+    
+    func addBrick(brick: BrickView, name: String) {
+        let path = UIBezierPath(rect: brick.frame)
         collider.removeBoundaryWithIdentifier(name)
         collider.addBoundaryWithIdentifier(name, forPath: path)
     }

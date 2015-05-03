@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BreakoutTwinViewController: UIViewController, UIDynamicAnimatorDelegate {
+class BreakoutTwinViewController: UIViewController, UIDynamicAnimatorDelegate, UICollisionBehaviorDelegate {
  
     @IBOutlet weak var gameView: BezierPathsView!
     let gameBehavior = GameBehavior()
@@ -22,10 +22,13 @@ class BreakoutTwinViewController: UIViewController, UIDynamicAnimatorDelegate {
     let wallSize = CGFloat(10)
     let cornerSize = CGFloat(30)
     let paddleFloatSize = CGFloat(40)
+    let corridorWidth = CGFloat(50)
+    let corridorHeight = CGFloat(200)
 
     let accelerator = CGFloat(1.5)
     
     var paddleViews = [PaddleView?]()
+    var bricks = [String:BrickView]()
     
     struct PathNames {
         static let TopLeftBarrier = "Top Left Barrier"
@@ -61,6 +64,8 @@ class BreakoutTwinViewController: UIViewController, UIDynamicAnimatorDelegate {
         super.viewDidLayoutSubviews()
 
         if paddleViews.count < 2 {
+            
+            gameBehavior.collider.collisionDelegate = self
 
             var bottomPaddle = PaddleView(gameView: gameView, y_pos: gameView.bounds.height - paddleFloatSize, name: PathNames.bottomPaddle)
             paddleViews.append(bottomPaddle)
@@ -79,6 +84,8 @@ class BreakoutTwinViewController: UIViewController, UIDynamicAnimatorDelegate {
             gameView.addBarrier(CGPoint(x: gameView.bounds.width - cornerSize, y: wallSize/2), to: CGPoint(x: gameView.bounds.width, y: wallSize/2), name: PathNames.TopRightBarrier)
             gameView.addBarrier(CGPoint(x: gameView.bounds.width - wallSize/2, y: 0), to: CGPoint(x: gameView.bounds.width - wallSize/2, y: gameView.bounds.height), name: PathNames.RightBarrier)
             gameView.addBarrier(CGPoint(x: gameView.bounds.width - cornerSize, y: gameView.bounds.height - wallSize/2), to: CGPoint(x: gameView.bounds.width, y: gameView.bounds.height - wallSize/2), name: PathNames.BottomRightBarrier)
+            
+            addBricks()
         }
 
     }
@@ -113,6 +120,34 @@ class BreakoutTwinViewController: UIViewController, UIDynamicAnimatorDelegate {
         if sender.state == .Ended {
             if gameBehavior.ballMovement.items.count == 0 {
                 addBall()
+            }
+        }
+    }
+    
+    func addBricks() {
+        var xi = 0
+        var yi = 0
+        let brickWidth = (gameView.bounds.width - (2*wallSize) - (2*corridorWidth)) / 8
+        let brickHeight = (gameView.bounds.height - (2*wallSize) - (2*corridorHeight)) / 8
+        for var y = (wallSize + corridorHeight); (y < (gameView.bounds.height - (wallSize + corridorHeight))); y+=brickHeight {
+            for var x = (wallSize + corridorWidth); (x < (gameView.bounds.width - (wallSize + corridorWidth))); x+=brickWidth {
+                
+                var name = "b\(xi),\(yi)"
+                var brick = BrickView(x_pos: x, width: brickWidth, y_pos: y, height: brickHeight, name: name)
+                gameBehavior.addBrick(brick, name: name)
+                gameView.addSubview(brick)
+                bricks[name] = brick
+                xi += 1
+            }
+            yi += 1
+        }
+    }
+    
+    func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying, atPoint p: CGPoint) {
+        if let identifierString = identifier as? String {
+            if let brick = bricks[identifierString] {
+                brick.removeFromSuperview()
+                behavior.removeBoundaryWithIdentifier(identifier)
             }
         }
     }
