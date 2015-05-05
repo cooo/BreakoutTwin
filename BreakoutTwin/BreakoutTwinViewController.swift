@@ -30,8 +30,6 @@ class BreakoutTwinViewController: UIViewController, UIDynamicAnimatorDelegate, U
     var paddleViews = [PaddleView?]()
     var bricks = [String:BrickView]()
     var scoreView: ScoreView?
-    var score = 0
-    
     
     struct PathNames {
         static let TopLeftBarrier = "Top Left Barrier"
@@ -70,7 +68,6 @@ class BreakoutTwinViewController: UIViewController, UIDynamicAnimatorDelegate, U
             
             scoreView = ScoreView(gameView: gameView)
             gameView.addSubview(scoreView!)
-            //scoreView!.score = 0
             
             gameBehavior.collider.collisionDelegate = self
 
@@ -153,8 +150,7 @@ class BreakoutTwinViewController: UIViewController, UIDynamicAnimatorDelegate, U
     func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying, atPoint p: CGPoint) {
         if let identifierString = identifier as? String {
             if let brick = bricks[identifierString] {
-                score += brick.points
-                scoreView!.score = score
+                scoreView!.score += brick.points
                 brick.removeFromSuperview()
                 behavior.removeBoundaryWithIdentifier(identifier)
             }

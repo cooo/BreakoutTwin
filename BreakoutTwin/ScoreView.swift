@@ -10,7 +10,7 @@ import UIKit
 
 class ScoreView: UIView {
     
-    var score: Int? {
+    var score:Int = 0 {
         didSet {
             setNeedsDisplay()
         }
@@ -25,13 +25,10 @@ class ScoreView: UIView {
         label!.font = UIFont.boldSystemFontOfSize(CGFloat(50))
         label!.textAlignment = NSTextAlignment.Right
         self.addSubview(label!)
-        score = 0
     }
 
     override func drawRect(rect: CGRect) {
-        if score != nil {
-            label!.text = "\(score!)"
-            // do some nifty 70's styled digits here
-       }
+        label!.text = "\(score)"
+        // do some nifty 70's styled digits here
     }
 }
