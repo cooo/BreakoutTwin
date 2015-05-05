@@ -10,7 +10,7 @@
 		F07D1FDE1AF4F9BE00E2EC26 /* BrickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07D1FDD1AF4F9BE00E2EC26 /* BrickView.swift */; };
 		F0D0B0F41AEA623B00DB4C31 /* BallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D0B0F31AEA623B00DB4C31 /* BallView.swift */; };
 		F0D0B0F61AEA758A00DB4C31 /* GameBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D0B0F51AEA758A00DB4C31 /* GameBehavior.swift */; };
-		F0D2B82B1AF63F9A0036D308 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2B82A1AF63F9A0036D308 /* UIColor.swift */; };
+		F0D812DB1AF8DDD100ECB4AB /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D812DA1AF8DDD100ECB4AB /* ScoreView.swift */; };
 		F0E9736B1AE9623D00351E23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E9736A1AE9623D00351E23 /* AppDelegate.swift */; };
 		F0E973701AE9623D00351E23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E9736E1AE9623D00351E23 /* Main.storyboard */; };
 		F0E973721AE9623D00351E23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0E973711AE9623D00351E23 /* Images.xcassets */; };
@@ -36,7 +36,7 @@
 		F07D1FDD1AF4F9BE00E2EC26 /* BrickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrickView.swift; sourceTree = "<group>"; };
 		F0D0B0F31AEA623B00DB4C31 /* BallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallView.swift; sourceTree = "<group>"; };
 		F0D0B0F51AEA758A00DB4C31 /* GameBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBehavior.swift; sourceTree = "<group>"; };
-		F0D2B82A1AF63F9A0036D308 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		F0D812DA1AF8DDD100ECB4AB /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		F0E973651AE9623D00351E23 /* BreakoutTwin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakoutTwin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E973691AE9623D00351E23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0E9736A1AE9623D00351E23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,12 +93,13 @@
 			children = (
 				F0E9738E1AE9734D00351E23 /* extensions */,
 				F0D0B0F31AEA623B00DB4C31 /* BallView.swift */,
+				F0E9738C1AE9660F00351E23 /* BezierPathsView.swift */,
 				F07D1FDD1AF4F9BE00E2EC26 /* BrickView.swift */,
+				F0E9738A1AE963D400351E23 /* BreakoutTwinViewController.swift */,
 				F0D0B0F51AEA758A00DB4C31 /* GameBehavior.swift */,
 				F0E9736E1AE9623D00351E23 /* Main.storyboard */,
 				F0E973911AE9859700351E23 /* PaddleView.swift */,
-				F0E9738A1AE963D400351E23 /* BreakoutTwinViewController.swift */,
-				F0E9738C1AE9660F00351E23 /* BezierPathsView.swift */,
+				F0D812DA1AF8DDD100ECB4AB /* ScoreView.swift */,
 				F0E973681AE9623D00351E23 /* Supporting Files */,
 			);
 			path = BreakoutTwin;
@@ -136,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				F0E9738F1AE9736A00351E23 /* CAGradientLayer.swift */,
-				F0D2B82A1AF63F9A0036D308 /* UIColor.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -244,13 +244,13 @@
 			files = (
 				F07D1FDE1AF4F9BE00E2EC26 /* BrickView.swift in Sources */,
 				F0E9738D1AE9660F00351E23 /* BezierPathsView.swift in Sources */,
+				F0D812DB1AF8DDD100ECB4AB /* ScoreView.swift in Sources */,
 				F0E973901AE9736A00351E23 /* CAGradientLayer.swift in Sources */,
 				F0E973921AE9859700351E23 /* PaddleView.swift in Sources */,
 				F0D0B0F61AEA758A00DB4C31 /* GameBehavior.swift in Sources */,
 				F0D0B0F41AEA623B00DB4C31 /* BallView.swift in Sources */,
 				F0E9738B1AE963D400351E23 /* BreakoutTwinViewController.swift in Sources */,
 				F0E9736B1AE9623D00351E23 /* AppDelegate.swift in Sources */,
-				F0D2B82B1AF63F9A0036D308 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
