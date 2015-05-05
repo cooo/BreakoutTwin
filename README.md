@@ -8,4 +8,6 @@
 Progress
 ========
 
-![screen shot 2015-05-05 at 09 56 15](https://cloud.githubusercontent.com/assets/1001241/7468810/1ee9438c-f30d-11e4-8b79-5aca36068953.png)
+screen shot 2015-05-05 at 09 56
+
+![screen shot 2015-05-05 at 09 56 15](https://cloud.githubusercontent.com/assets/1001241/7468911/13650112-f30e-11e4-981b-536871aef775.png)
