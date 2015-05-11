@@ -23,7 +23,8 @@ class BreakoutTwinViewController: UIViewController, UIDynamicAnimatorDelegate, U
     let cornerSize = CGFloat(30)
     let paddleFloatSize = CGFloat(40)
     let corridorWidth = CGFloat(50)
-    let corridorHeight = CGFloat(200)
+    let corridorHeight = CGFloat(150)
+    let bottomPanSpace = CGFloat(40)
 
     let accelerator = CGFloat(1.5)
     
@@ -71,7 +72,7 @@ class BreakoutTwinViewController: UIViewController, UIDynamicAnimatorDelegate, U
             
             gameBehavior.collider.collisionDelegate = self
 
-            var bottomPaddle = PaddleView(gameView: gameView, y_pos: gameView.bounds.height - paddleFloatSize, name: PathNames.bottomPaddle)
+            var bottomPaddle = PaddleView(gameView: gameView, y_pos: gameView.bounds.height - paddleFloatSize - bottomPanSpace, name: PathNames.bottomPaddle)
             paddleViews.append(bottomPaddle)
             gameBehavior.addPaddle(bottomPaddle, name: PathNames.bottomPaddle)
 
@@ -82,12 +83,12 @@ class BreakoutTwinViewController: UIViewController, UIDynamicAnimatorDelegate, U
             gameView.behavior = gameBehavior
             
             gameView.addBarrier(CGPoint(x: cornerSize, y: wallSize/2),                          to: CGPoint(x: 0,          y: wallSize/2),                          name: PathNames.TopLeftBarrier)
-            gameView.addBarrier(CGPoint(x: wallSize/2, y: 0),                                   to: CGPoint(x: wallSize/2, y: gameView.bounds.height),              name: PathNames.LeftBarrier)
-            gameView.addBarrier(CGPoint(x: 0,          y: gameView.bounds.height - wallSize/2), to: CGPoint(x: cornerSize, y: gameView.bounds.height - wallSize/2), name: PathNames.BottomLeftBarrier)
+            gameView.addBarrier(CGPoint(x: wallSize/2, y: 0),                                   to: CGPoint(x: wallSize/2, y: gameView.bounds.height - bottomPanSpace),              name: PathNames.LeftBarrier)
+            gameView.addBarrier(CGPoint(x: 0,          y: gameView.bounds.height - wallSize/2 - bottomPanSpace), to: CGPoint(x: cornerSize, y: gameView.bounds.height - wallSize/2 - bottomPanSpace), name: PathNames.BottomLeftBarrier)
             
             gameView.addBarrier(CGPoint(x: gameView.bounds.width - cornerSize, y: wallSize/2), to: CGPoint(x: gameView.bounds.width, y: wallSize/2), name: PathNames.TopRightBarrier)
-            gameView.addBarrier(CGPoint(x: gameView.bounds.width - wallSize/2, y: 0), to: CGPoint(x: gameView.bounds.width - wallSize/2, y: gameView.bounds.height), name: PathNames.RightBarrier)
-            gameView.addBarrier(CGPoint(x: gameView.bounds.width - cornerSize, y: gameView.bounds.height - wallSize/2), to: CGPoint(x: gameView.bounds.width, y: gameView.bounds.height - wallSize/2), name: PathNames.BottomRightBarrier)
+            gameView.addBarrier(CGPoint(x: gameView.bounds.width - wallSize/2, y: 0), to: CGPoint(x: gameView.bounds.width - wallSize/2, y: gameView.bounds.height - bottomPanSpace), name: PathNames.RightBarrier)
+            gameView.addBarrier(CGPoint(x: gameView.bounds.width - cornerSize, y: gameView.bounds.height - wallSize/2 - bottomPanSpace), to: CGPoint(x: gameView.bounds.width, y: gameView.bounds.height - wallSize/2 - bottomPanSpace), name: PathNames.BottomRightBarrier)
             
             addBricks()
         }
@@ -132,8 +133,8 @@ class BreakoutTwinViewController: UIViewController, UIDynamicAnimatorDelegate, U
         var xi = 0
         var yi = 0
         let brickWidth = (gameView.bounds.width - (2*wallSize) - (2*corridorWidth)) / 8
-        let brickHeight = (gameView.bounds.height - (2*wallSize) - (2*corridorHeight)) / 8
-        for var y = (wallSize + corridorHeight); (y < (gameView.bounds.height - (wallSize + corridorHeight))); y+=brickHeight {
+        let brickHeight = (gameView.bounds.height - (2*wallSize) - (2*corridorHeight)) / 6
+        for var y = (wallSize + corridorHeight - bottomPanSpace/2); (y < (gameView.bounds.height - (wallSize + corridorHeight + bottomPanSpace/2))); y+=brickHeight {
             for var x = (wallSize + corridorWidth); (x < (gameView.bounds.width - (wallSize + corridorWidth))); x+=brickWidth {
                 
                 var name = "b\(xi),\(yi)"

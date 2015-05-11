@@ -42,11 +42,11 @@ class BrickView: UIView {
         self.layer.cornerRadius = 3.0
         self.layer.borderColor = UIColor.grayColor().CGColor;
         self.layer.borderWidth = 0.5;
-        
         self.layer.shadowColor = UIColor.blackColor().CGColor;
         self.layer.shadowOffset = CGSize(width: 0, height: 3);
         self.layer.shadowRadius = 3.0;
         self.layer.shadowOpacity = 0.5;
+        self.layer.shadowPath = UIBezierPath(rect: self.bounds).CGPath;
     }
     
     override init(frame: CGRect) {

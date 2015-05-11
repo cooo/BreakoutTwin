@@ -9,6 +9,8 @@
 import UIKit
 
 class GameBehavior: UIDynamicBehavior {
+    
+    var lastPositions = [CGFloat]()
         
     lazy var ballMovement: UIDynamicItemBehavior = {
         let lazilyCreatedBallMovement = UIDynamicItemBehavior()
@@ -19,9 +21,30 @@ class GameBehavior: UIDynamicBehavior {
         lazilyCreatedBallMovement.action = {
             for item in lazilyCreatedBallMovement.items {
                 if let ball = item as? BallView {
+                    self.lastPositions.append(ball.frame.origin.y)
+                    
                     if ball.frame.origin.y < 0 || ball.frame.origin.y > self.dynamicAnimator?.referenceView?.bounds.height {
                         self.removeBall(ball)
                     }
+                    if self.lastPositions.count > 5 {
+                        var current = self.lastPositions.removeAtIndex(0)
+                        var lastPositions = [CGFloat](count: 5, repeatedValue: current)
+                        if self.lastPositions == lastPositions {
+                            var pushDirection = 0.075
+                            if current > self.dynamicAnimator?.referenceView?.bounds.midY {
+                                pushDirection = -0.075
+                            }
+                            let push = UIPushBehavior(items: [ball], mode: .Instantaneous)
+                            push.pushDirection = CGVector(dx: 0.075, dy: pushDirection)
+                            push.action = { [weak push] in
+                                if !push!.active {
+                                    self.removeChildBehavior(push!)
+                                }
+                            }
+                            self.addChildBehavior(push)
+                        }
+                    }
+
                 }
             }
         }
@@ -49,7 +72,7 @@ class GameBehavior: UIDynamicBehavior {
         dynamicAnimator?.referenceView?.addSubview(ball)
         
         let push = UIPushBehavior(items: [ball], mode: .Instantaneous)
-        push.pushDirection = CGVector(dx: 0.1, dy: -0.1)
+        push.pushDirection = CGVector(dx: 0.075, dy: -0.075)
         push.action = { [weak push] in
             if !push!.active {
                 self.removeChildBehavior(push!)
@@ -68,7 +91,7 @@ class GameBehavior: UIDynamicBehavior {
     }
 
     func addPaddle(paddle: UIView, name: String) {
-        let path = UIBezierPath(roundedRect: paddle.frame, cornerRadius: CGFloat(50))
+        let path = UIBezierPath(ovalInRect: paddle.frame)
         collider.removeBoundaryWithIdentifier(name)
         collider.addBoundaryWithIdentifier(name, forPath: path)
     }
